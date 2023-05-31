@@ -43,13 +43,18 @@ INSERT INTO auteur (NomAuteur, CatAuteur) VALUES
     ('Rousseau', 'Poète'),
     ('Gagnon', 'Romancier');
 
+-- Jeu de données pour la table "categorie"
+INSERT INTO categorie (idcategorie, libelle) VALUES
+    (1, 'Roman'),
+    (2, 'Poesie');
+    
 -- Jeu de données pour la table "ouvrage"
-INSERT INTO ouvrage (IdCompte, IdAuteur, NomOuvrage, CatOuvrage) VALUES
-    (1, 1, 'Livre 1', 'Roman'),
-    (2, 2, 'Poème 1', 'Poésie'),
-    (3, 3, 'Livre 2', 'Roman'),
-    (4, 4, 'Poème 2', 'Poésie'),
-    (5, 5, 'Livre 3', 'Roman');
+INSERT INTO ouvrage (IdCompte, IdAuteur, NomOuvrage, IdCategorie) VALUES
+    (1, 1, 'Livre 1', 1),
+    (2, 2, 'Poème 1', 2),
+    (3, 3, 'Livre 2', 1),
+    (4, 4, 'Poème 2', 2),
+    (5, 5, 'Livre 3', 1);
 
 -- Jeu de données pour la table "emprunt"
 INSERT INTO emprunt (IdOuvrage, IdCompte, DateEmprunt) VALUES
