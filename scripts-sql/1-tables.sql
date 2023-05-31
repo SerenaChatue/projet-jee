@@ -27,3 +27,46 @@ CREATE TABLE role (
 	PRIMARY KEY (IdCompte, Role)
 );
 
+CREATE TABLE utilisateur (
+	IdCompte		INT				NOT NULL,
+	NomUtilisateur			VARCHAR(20)		NOT NULL,
+	PrenomUtilisateur			VARCHAR(20) NOT NULL,
+	FOREIGN KEY (IdCompte) REFERENCES compte (IdCompte),
+	PRIMARY KEY (IdCompte)
+);
+CREATE TABLE auteur (
+	IdAuteur		INT				NOT NULL,
+	NomAuteur			VARCHAR(20)		NOT NULL,
+	CatAuteur			VARCHAR(20),
+	PRIMARY KEY (IdAuteur)
+);
+
+CREATE TABLE ouvrage (
+	IdOuvrage		INT				NOT NULL,
+	IdCompte		INT				NOT NULL,
+	IdAuteur		INT				NOT NULL,
+	NomOuvrage			VARCHAR(20)		NOT NULL,
+	CatOuvrage			VARCHAR(20)		NOT NULL,
+	FOREIGN KEY (IdAuteur) REFERENCES auteur (IdAuteur),
+	FOREIGN KEY (IdCompte) REFERENCES utilisateur (IdCompte),
+	PRIMARY KEY (IdOuvrage)
+);
+
+CREATE TABLE emprunt (
+	IdEmprunt		INT				NOT NULL,
+	IdOuvrage		INT				NOT NULL,
+	IdCompte		INT				NOT NULL,
+	NomOuvrage			VARCHAR(20)		NOT NULL,
+	CatOuvrage			VARCHAR(20)		NOT NULL,
+	FOREIGN KEY (IdOuvrage) REFERENCES ouvrage (IdOuvrage),
+	FOREIGN KEY (IdCompte) REFERENCES utilisateur (IdCompte),
+	PRIMARY KEY (IdEmprunt)
+);
+
+
+CREATE TABLE editeur (
+	IdEditeur		INT				NOT NULL,
+	NomEditeur			VARCHAR(20)		NOT NULL,
+	PRIMARY KEY (IdEditeur)
+);
+
