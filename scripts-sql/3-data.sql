@@ -4,25 +4,65 @@ SET search_path TO projet;
 -- Supprime toutes les données
 DELETE FROM role;
 DELETE FROM compte;
+DELETE FROM Utilisateur;
+
 
 
 -- Insère les données
 
--- Compte
+INSERT INTO compte (Pseudo, MotDePasse, Email) VALUES
+    ('user1', 'pass1', 'user1@example.com'),
+    ('user2', 'pass2', 'user2@example.com'),
+    ('user3', 'pass3', 'user3@example.com'),
+    ('user4', 'pass4', 'user4@example.com'),
+    ('user5', 'pass5', 'user5@example.com');
+    ALTER TABLE compte ALTER COLUMN idcompte RESTART WITH 6;
 
-INSERT INTO compte (idcompte, pseudo, motdepasse, email ) VALUES 
-( 1, 'geek', 'geek', 'geek@jfox.fr' ),
-( 2, 'chef', 'chef', 'chef@jfox.fr' ),
-( 3, 'job', 'job', 'job@jfox.fr' );
 
-ALTER TABLE compte ALTER COLUMN idcompte RESTART WITH 4;
+-- Jeu de données pour la table "role"
+INSERT INTO role (IdCompte, Role) VALUES
+    (1, 'ADMINISTRATEUR'),
+    (2, 'UTILISATEUR'),
+    (3, 'UTILISATEUR'),
+    (4, 'UTILISATEUR'),
+    (5, 'UTILISATEUR');
 
+-- Jeu de données pour la table "utilisateur"
+INSERT INTO utilisateur (IdCompte, NomUtilisateur, PrenomUtilisateur) VALUES
+    (1, 'Doe', 'John'),
+    (2, 'Smith', 'Jane'),
+    (3, 'Johnson', 'Mark'),
+    (4, 'Williams', 'Emily'),
+    (5, 'Brown', 'Michael');
 
--- Role
+-- Jeu de données pour la table "auteur"
+INSERT INTO auteur (NomAuteur, CatAuteur) VALUES
+    ('Dupont', 'Romancier'),
+    ('Martin', 'Poète'),
+    ('Lefebvre', 'Romancier'),
+    ('Rousseau', 'Poète'),
+    ('Gagnon', 'Romancier');
 
-INSERT INTO role (idcompte, role) VALUES 
-( 1, 'ADMINISTRATEUR' ),
-( 1, 'UTILISATEUR' ),
-( 2, 'UTILISATEUR' ),
-( 3, 'UTILISATEUR' );
- 
+-- Jeu de données pour la table "ouvrage"
+INSERT INTO ouvrage (IdCompte, IdAuteur, NomOuvrage, CatOuvrage) VALUES
+    (1, 1, 'Livre 1', 'Roman'),
+    (2, 2, 'Poème 1', 'Poésie'),
+    (3, 3, 'Livre 2', 'Roman'),
+    (4, 4, 'Poème 2', 'Poésie'),
+    (5, 5, 'Livre 3', 'Roman');
+
+-- Jeu de données pour la table "emprunt"
+INSERT INTO emprunt (IdOuvrage, IdCompte, DateEmprunt) VALUES
+ 	(1, 1, '2023-05-01'),
+    (2, 2, '2023-05-02'),
+    (3, 3, '2023-05-03'),
+    (4, 4, '2023-05-04'),
+    (5, 5, '2023-05-05');
+
+-- Jeu de données pour la table "editeur"
+INSERT INTO editeur (NomEditeur) VALUES
+    ('Éditions ABC'),
+    ('Éditions XYZ'),
+    ('Éditions DEF'),
+    ('Éditions GHI'),
+    ('Éditions JKL');
