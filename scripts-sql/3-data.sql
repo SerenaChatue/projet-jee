@@ -1,4 +1,4 @@
-SET search_path TO projet;
+--SET search_path TO projet;
 
 
 -- Supprime toutes les données
@@ -36,12 +36,18 @@ INSERT INTO utilisateur (IdCompte, NomUtilisateur, PrenomUtilisateur) VALUES
     (5, 'Brown', 'Michael');
 
 -- Jeu de données pour la table "auteur"
-INSERT INTO auteur (NomAuteur, CatAuteur) VALUES
-    ('Dupont', 'Romancier'),
-    ('Martin', 'Poète'),
-    ('Lefebvre', 'Romancier'),
-    ('Rousseau', 'Poète'),
-    ('Gagnon', 'Romancier');
+INSERT INTO auteur (NomAuteur) VALUES
+    ('Dupont'),
+    ('Martin'),
+    ('Lefebvre'),
+    ('Rousseau'),
+    ('Gagnon');
+    
+-- Jeu de données pour la table "editeur"
+INSERT INTO editeur (NomEditeur) VALUES
+    ('Éditions ABC'),
+    ('Éditions XYZ'),
+    ('Éditions JKL');
 
 -- Jeu de données pour la table "categorie"
 INSERT INTO categorie (idcategorie, libelle) VALUES
@@ -49,12 +55,12 @@ INSERT INTO categorie (idcategorie, libelle) VALUES
     (2, 'Poesie');
     
 -- Jeu de données pour la table "ouvrage"
-INSERT INTO ouvrage (IdCompte, IdAuteur, NomOuvrage, IdCategorie) VALUES
-    (1, 1, 'Livre 1', 1),
-    (2, 2, 'Poème 1', 2),
-    (3, 3, 'Livre 2', 1),
-    (4, 4, 'Poème 2', 2),
-    (5, 5, 'Livre 3', 1);
+INSERT INTO ouvrage (IdCompte, IdAuteur, IdEditeur, NomOuvrage, IdCategorie) VALUES
+    (1, 1, 1, 'Livre 1', 1),
+    (2, 2, 2, 'Poème 1', 2),
+    (3, 3, 1, 'Livre 2', 1),
+    (4, 4, 2, 'Poème 2', 2),
+    (5, 5, 3, 'Livre 3', 1);
 
 -- Jeu de données pour la table "emprunt"
 INSERT INTO emprunt (IdOuvrage, IdCompte, DateEmprunt) VALUES
@@ -64,10 +70,3 @@ INSERT INTO emprunt (IdOuvrage, IdCompte, DateEmprunt) VALUES
     (4, 4, '2023-05-04'),
     (5, 5, '2023-05-05');
 
--- Jeu de données pour la table "editeur"
-INSERT INTO editeur (NomEditeur) VALUES
-    ('Éditions ABC'),
-    ('Éditions XYZ'),
-    ('Éditions DEF'),
-    ('Éditions GHI'),
-    ('Éditions JKL');
