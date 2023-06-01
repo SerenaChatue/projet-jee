@@ -36,7 +36,7 @@ public class Ouvrage {
 	private String nom;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@Column( name = "idAuteur" )
+	@JoinColumn( name = "idAuteur" )
 	private Auteur auteur;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
