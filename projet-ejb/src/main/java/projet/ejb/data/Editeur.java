@@ -11,23 +11,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table( name = "auteur"  )
-public class Auteur {
+@Table( name = "editeur"  )
+public class Editeur {
 	@Id
 	@GeneratedValue( strategy = IDENTITY )
-	@Column( name = "idAuteur" )
+	@Column( name = "idediteur" )
 	private int	id;
 	
-	@Column( name = "nomAuteur" )
-	private String	nomAuteur;
+	@Column( name = "nomediteur" )
+	private String	nomediteur;
 	
-	public Auteur() {
+	public Editeur() {
 	}
 
-	public Auteur(int id, String nomauteur) {
+	public Editeur(int id, String nomediteur) {
 		super();
 		setId(id);
-		setNomAuteur(nomauteur);
+		setNomediteur(nomediteur);
 	}
 
 	public int getId() {
@@ -38,17 +38,17 @@ public class Auteur {
 		this.id = id;
 	}
 
-	public String getNomAuteur() {
-		return nomAuteur;
+	public String getNomediteur() {
+		return nomediteur;
 	}
 
-	public void setNomAuteur(String nomauteur) {
-		this.nomAuteur = nomauteur;
+	public void setNomediteur(String nomediteur) {
+		this.nomediteur = nomediteur;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, nomAuteur);
+		return Objects.hash(id, nomediteur);
 	}
 
 	@Override
@@ -59,14 +59,14 @@ public class Auteur {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Auteur other = (Auteur) obj;
+		Editeur other = (Editeur) obj;
 		return id == other.id
-				&& Objects.equals(nomAuteur, other.nomAuteur);
+				&& Objects.equals(nomediteur, other.nomediteur);
 	}
 
 	@Override
 	public String toString() {
-		return "Auteur [id=" + id + ", nomauteur=" + nomAuteur + "]";
+		return "Auteur [id=" + id + ", nomediteur=" + nomediteur + "]";
 	}
 	
 	

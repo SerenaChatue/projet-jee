@@ -14,6 +14,7 @@ import projet.commun.dto.DtoCategorie;
 import projet.commun.exception.ExceptionValidation;
 import projet.commun.service.IServiceCategorie;
 import projet.ejb.dao.IDaoCategorie;
+import projet.ejb.dao.IDaoOuvrage;
 import projet.ejb.data.Categorie;
 import projet.ejb.data.mapper.IMapperEjb;
 

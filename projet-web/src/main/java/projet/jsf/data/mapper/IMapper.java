@@ -3,7 +3,9 @@ package projet.jsf.data.mapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 
+import projet.commun.dto.DtoAuteur;
 import projet.commun.dto.DtoCompte;
+import projet.ejb.data.Auteur;
 import projet.jsf.data.Compte;
 
 
@@ -20,5 +22,9 @@ public interface IMapper {
 	Compte duplicate( Compte source );
 
 	Compte update( @MappingTarget Compte target, Compte source );
+	
+	
+	
+		
 
 }
