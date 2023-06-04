@@ -28,15 +28,15 @@ public class Emprunt {
 	@Column(name = "dateemprunt")
 	private Date dateemprunt;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idpreteur")
 	private Utilisateur preteur;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idemprunteur")
 	private Utilisateur emprunteur;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idouvrage")
 	private Ouvrage ouvrage;
 

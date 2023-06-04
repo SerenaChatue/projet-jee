@@ -48,7 +48,8 @@ public class DaoEditeur implements IDaoEditeur {
 	@Override
 	public void supprimer(int idEditeur) {
 		//donnees.getMapEditeurs().remove( idEditeur );
-		em.remove(em.getReference(Editeur.class, idEditeur));
+//		em.remove(em.getReference(Editeur.class, idEditeur));
+		em.remove(retrouver(idEditeur));
 	}
 
 	@Override

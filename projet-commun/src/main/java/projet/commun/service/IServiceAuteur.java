@@ -18,5 +18,4 @@ public interface IServiceAuteur {
 	
 	List<DtoAuteur> listerTout();
 	
-
 }

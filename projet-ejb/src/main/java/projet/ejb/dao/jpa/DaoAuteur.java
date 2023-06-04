@@ -47,7 +47,7 @@ public class DaoAuteur implements IDaoAuteur {
 	@Override
 	public void supprimer(int idAuteur) {
 		//donnees.getMapAuteurs().remove( idAuteur );
-		em.remove(em.getReference(Auteur.class, idAuteur));
+		em.remove(retrouver(idAuteur));
 	}
 
 	@Override
