@@ -22,51 +22,64 @@ INSERT INTO compte (Pseudo, MotDePasse, Email) VALUES
 -- Jeu de données pour la table "role"
 INSERT INTO role (IdCompte, Role) VALUES
     (1, 'ADMINISTRATEUR'),
+    (1, 'UTILISATEUR'),
     (2, 'UTILISATEUR'),
     (3, 'UTILISATEUR'),
     (4, 'UTILISATEUR'),
     (5, 'UTILISATEUR');
 
--- Jeu de données pour la table "utilisateur"
+-- Insertion de données dans la table "utilisateur"
 INSERT INTO utilisateur (IdCompte, NomUtilisateur, PrenomUtilisateur) VALUES
-    (1, 'Doe', 'John'),
-    (2, 'Smith', 'Jane'),
-    (3, 'Johnson', 'Mark'),
-    (4, 'Williams', 'Emily'),
-    (5, 'Brown', 'Michael');
+	(1, 'Doe', 'John'),
+   	(2, 'Smith', 'Jane'),
+   	(3, 'Johnson', 'Mark'),
+   	(4, 'Taylor', 'Emily'),
+   	(5, 'Brown', 'Michael');
 
--- Jeu de données pour la table "auteur"
+-- Insertion de données dans la table "amitie"
+INSERT INTO amitie (sender_id, receiver_id, demande_envoyee, demande_acceptee) VALUES
+	(1, 2, true, false),
+   	(1, 4, true, true),
+   	(3, 1, true, false),
+   	(4, 2, true, true),
+   	(5, 1, true, true);
+
+-- Insertion de données dans la table "auteur"
 INSERT INTO auteur (NomAuteur) VALUES
-    ('Dupont'),
-    ('Martin'),
-    ('Lefebvre'),
-    ('Rousseau'),
-    ('Gagnon');
-    
--- Jeu de données pour la table "editeur"
+	('Auteur1'),
+	('Auteur2'),
+	('Auteur3'),
+	('John Smith'),
+	('Jane Doe');
+
+-- Insertion de données dans la table "editeur"
 INSERT INTO editeur (NomEditeur) VALUES
-    ('Éditions ABC'),
-    ('Éditions XYZ'),
-    ('Éditions JKL');
+	('Editeur1'),
+	('Editeur2'),
+	('Editeur3'),
+	('PublisherX'),
+	('PublisherY');
 
--- Jeu de données pour la table "categorie"
-INSERT INTO categorie (idcategorie, libelle) VALUES
-    (1, 'Roman'),
-    (2, 'Poesie');
-    
--- Jeu de données pour la table "ouvrage"
+-- Insertion de données dans la table "categorie"
+INSERT INTO categorie (Libelle) VALUES
+	('Catégorie1'),
+	('Catégorie2'),
+	('Catégorie3'),
+	('GenreA'),
+	('GenreB');
+
+-- Insertion de données dans la table "ouvrage"
 INSERT INTO ouvrage (IdCompte, IdAuteur, IdEditeur, NomOuvrage, IdCategorie) VALUES
-    (1, 1, 1, 'Livre 1', 1),
-    (2, 2, 2, 'Poème 1', 2),
-    (3, 3, 1, 'Livre 2', 1),
-    (4, 4, 2, 'Poème 2', 2),
-    (5, 5, 3, 'Livre 3', 1);
+	(1, 1, 1, 'Ouvrage1', 1),
+	(2, 2, 2, 'Ouvrage2', 2),
+	(1, 3, 3, 'Ouvrage3', 3),
+	(3, 4, 4, 'BookX', 4),
+	(4, 5, 5, 'BookY', 5);
 
--- Jeu de données pour la table "emprunt"
-INSERT INTO emprunt (IdOuvrage, IdCompte, DateEmprunt) VALUES
- 	(1, 1, '2023-05-01'),
-    (2, 2, '2023-05-02'),
-    (3, 3, '2023-05-03'),
-    (4, 4, '2023-05-04'),
-    (5, 5, '2023-05-05');
-
+-- Insertion de données dans la table "emprunt"
+-- INSERT INTO emprunt (IdOuvrage, IdCompte, IdAmi, DateEmprunt, Delai) VALUES
+--	(1, 1, 4, '2023-01-01', 7),
+--	(2, 2, 2, '2023-02-01', 14),
+--	(3, 3, 3, '2023-03-01', 21),
+--	(4, 4, 4, '2023-04-01', 7),
+--	(5, 5, 5, '2023-05-01', 14);

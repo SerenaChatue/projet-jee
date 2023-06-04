@@ -16,46 +16,50 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
 /**
  * @author seren
  *
  */
 @Entity
-@Table( name = "ouvrage"  )
+@Table(name = "ouvrage")
 public class Ouvrage {
 
 	// Champs
-	
+
 	@Id
-	@GeneratedValue( strategy = IDENTITY )
-	@Column( name = "idouvrage" )
-	private int	id;
-	
-	@Column( name = "nomouvrage" )
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "idouvrage")
+	private int id;
+
+	@Column(name = "nomouvrage")
 	private String nom;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn( name = "idAuteur" )
+	@JoinColumn(name = "idAuteur")
 	private Auteur auteur;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idcategorie")
 	private Categorie categorie;
 
-	@ManyToOne( fetch = FetchType.LAZY )
-	@JoinColumn( name = "idcompte" )
-	private Utilisateur	utilisateur;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idcompte")
+	private Utilisateur utilisateur;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idediteur")
+	private Editeur editeur;
 
 	public Ouvrage() {
 	}
 
-	public Ouvrage(int id, String nom, projet.ejb.data.Categorie categorie, Utilisateur utilisateur) {
+	public Ouvrage(int id, String nom, projet.ejb.data.Categorie categorie, Utilisateur utilisateur, Editeur editeur) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.categorie = categorie;
 		this.utilisateur = utilisateur;
+		this.editeur = editeur;
 	}
 
 	public int getId() {
@@ -90,9 +94,17 @@ public class Ouvrage {
 		this.utilisateur = utilisateur;
 	}
 
+	public Editeur getEditeur() {
+		return editeur;
+	}
+
+	public void setEditeur(Editeur editeur) {
+		this.editeur = editeur;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, nom, utilisateur);
+		return Objects.hash(auteur, categorie, editeur, id, nom, utilisateur);
 	}
 
 	@Override
@@ -104,8 +116,9 @@ public class Ouvrage {
 		if (getClass() != obj.getClass())
 			return false;
 		Ouvrage other = (Ouvrage) obj;
-		return id == other.id && Objects.equals(nom, other.nom) && Objects.equals(utilisateur, other.utilisateur);
+		return Objects.equals(auteur, other.auteur) && Objects.equals(categorie, other.categorie)
+				&& Objects.equals(editeur, other.editeur) && id == other.id && Objects.equals(nom, other.nom)
+				&& Objects.equals(utilisateur, other.utilisateur);
 	}
-	
-	
+
 }

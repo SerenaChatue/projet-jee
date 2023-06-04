@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table( name = "editeur"  )
+@Table( name = "editeur" )
 public class Editeur {
 	@Id
 	@GeneratedValue( strategy = IDENTITY )
