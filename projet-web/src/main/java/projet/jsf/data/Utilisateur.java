@@ -10,26 +10,31 @@ import javax.persistence.Table;
 @Entity
 @Table( name = "utilisateur"  )
 public class Utilisateur {
-	@Id
-	@Column( name = "idcompte" )
-	private int	id;
-	
-	@Column( name = "nomutilisateur" )
-	private String nom;
-	
-	@Column( name = "prenomutilisateur" )
-	private String prenom;
+	 Integer	id;
+
 	
 	public Utilisateur() {
-	}
-
-	public Utilisateur(int id, String nom, String prenom) {
 		super();
-		setId(id);
-		setNom(nom);
-		setPrenom(prenom);
+		// TODO Auto-generated constructor stub
 	}
 
+private String nomUtilisateur;
+	
+	private String prenomUtilisateur;
+	
+	//Constructeur
+	
+	
+	
+	public Utilisateur(int id, String nomUtilisateur, String prenomUtilisateur) {
+		super();
+		this.id = id;
+		this.nomUtilisateur = nomUtilisateur;
+		this.prenomUtilisateur = prenomUtilisateur;
+	}
+
+	//Getters and setters
+	
 	public int getId() {
 		return id;
 	}
@@ -38,43 +43,23 @@ public class Utilisateur {
 		this.id = id;
 	}
 
-	public String getNom() {
-		return nom;
+	public String getNomUtilisateur() {
+		return nomUtilisateur;
 	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setNomUtilisateur(String nomUtilisateur) {
+		this.nomUtilisateur = nomUtilisateur;
 	}
 
-	public String getPrenom() {
-		return prenom;
+	public String getPrenomUtilisateur() {
+		return prenomUtilisateur;
 	}
 
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
+	public void setPrenomUtilisateur(String prenomUtilisateur) {
+		this.prenomUtilisateur = prenomUtilisateur;
 	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id, nom, prenom);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Utilisateur other = (Utilisateur) obj;
-		return id == other.id && Objects.equals(nom, other.nom) && Objects.equals(prenom, other.prenom);
-	}
-
-	@Override
-	public String toString() {
-		return "Utilisateur [id=" + id + ", nom=" + nom + ", prenom=" + prenom + "]";
-	}
+	
+	
 	
 	
 }

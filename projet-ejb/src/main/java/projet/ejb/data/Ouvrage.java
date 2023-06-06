@@ -32,7 +32,7 @@ public class Ouvrage {
 	private int id;
 
 	@Column(name = "nomouvrage")
-	private String nom;
+	private String nomOuvrage;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idAuteur")
@@ -56,7 +56,7 @@ public class Ouvrage {
 	public Ouvrage(int id, String nom, projet.ejb.data.Categorie categorie, Utilisateur utilisateur, Editeur editeur) {
 		super();
 		this.id = id;
-		this.nom = nom;
+		this.nomOuvrage = nom;
 		this.categorie = categorie;
 		this.utilisateur = utilisateur;
 		this.editeur = editeur;
@@ -70,12 +70,21 @@ public class Ouvrage {
 		this.id = id;
 	}
 
-	public String getNom() {
-		return nom;
+
+	public String getNomOuvrage() {
+		return nomOuvrage;
 	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setNomOuvrage(String nomOuvrage) {
+		this.nomOuvrage = nomOuvrage;
+	}
+
+	public Auteur getAuteur() {
+		return auteur;
+	}
+
+	public void setAuteur(Auteur auteur) {
+		this.auteur = auteur;
 	}
 
 	public Categorie getCategorie() {
@@ -104,7 +113,7 @@ public class Ouvrage {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(auteur, categorie, editeur, id, nom, utilisateur);
+		return Objects.hash(auteur, categorie, editeur, id, nomOuvrage, utilisateur);
 	}
 
 	@Override
@@ -117,7 +126,7 @@ public class Ouvrage {
 			return false;
 		Ouvrage other = (Ouvrage) obj;
 		return Objects.equals(auteur, other.auteur) && Objects.equals(categorie, other.categorie)
-				&& Objects.equals(editeur, other.editeur) && id == other.id && Objects.equals(nom, other.nom)
+				&& Objects.equals(editeur, other.editeur) && id == other.id && Objects.equals(nomOuvrage, other.nomOuvrage)
 				&& Objects.equals(utilisateur, other.utilisateur);
 	}
 

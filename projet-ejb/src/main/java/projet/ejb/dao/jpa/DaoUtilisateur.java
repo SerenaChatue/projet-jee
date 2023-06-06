@@ -1,6 +1,7 @@
 package projet.ejb.dao.jpa;
 
 import static javax.ejb.TransactionAttributeType.MANDATORY;
+import static javax.ejb.TransactionAttributeType.NOT_SUPPORTED;
 
 import java.util.List;
 
@@ -44,9 +45,11 @@ public class DaoUtilisateur implements IDaoUtilisateur {
 	}
 
 	@Override
+	@TransactionAttribute( NOT_SUPPORTED )
 	public List<Utilisateur> listerTout() {
 		// TODO Auto-generated method stub
-		var jpql = "SELECT u FROM Utilisateur u ORDER BY u.nom";
+		var jpql = "SELECT u FROM Utilisateur u ORDER BY u.nomUtilisateur";
+		System.out.println("heloooo");
 		var query = em.createQuery(jpql, Utilisateur.class);
 		return query.getResultList();
 	}

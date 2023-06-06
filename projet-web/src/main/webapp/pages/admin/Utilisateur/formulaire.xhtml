@@ -33,7 +33,7 @@
 				</td>
 				<td>
 					<h:inputText id="pseudo" size="25" 
-						value="#{modelUtilisateur.courant.pseudo}" />
+						value="#{modelUtilisateur.courant.nom}" />
 					<br /><h:message for="pseudo" errorClass="error"/>
 				</td>
 			</tr>
@@ -43,31 +43,8 @@
 				</td>
 				<td>
 					<h:inputText id="motDePasse" size="25" 
-						value="#{modelUtilisateur.courant.motDePasse}" />
+						value="#{modelUtilisateur.courant.prenom}" />
 					<br /><h:message for="motDePasse" errorClass="error"/>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<h:outputLabel for="email">Email :</h:outputLabel>				
-				</td>
-				<td>
-					<h:inputText id="email" size="50" 
-						value="#{modelUtilisateur.courant.email}" />
-					<br /><h:message for="email" errorClass="error"/>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<h:outputLabel for="roles">Roles :</h:outputLabel>				
-				</td>
-				<td>
-					<h:selectManyCheckbox id="roles" layout="pageDirection" 
-						value="#{modelUtilisateur.courant.roles}">
-						<f:selectItems value="#{utilAppli.roles}" var="role" 
-							itemLabel="#{utilAppli.getLibelléDeRole(role)}"  />
-					</h:selectManyCheckbox>
-					<h:message for="roles" errorClass="error"/>
 				</td>
 			</tr>
 		</table>

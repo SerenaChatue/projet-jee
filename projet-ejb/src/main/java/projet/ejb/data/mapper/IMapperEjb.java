@@ -8,11 +8,13 @@ import projet.commun.dto.DtoCategorie;
 import projet.commun.dto.DtoCompte;
 import projet.commun.dto.DtoEditeur;
 import projet.commun.dto.DtoOuvrage;
+import projet.commun.dto.DtoUtilisateur;
 import projet.ejb.data.Auteur;
 import projet.ejb.data.Categorie;
 import projet.ejb.data.Compte;
 import projet.ejb.data.Editeur;
 import projet.ejb.data.Ouvrage;
+import projet.ejb.data.Utilisateur;
 
 @Mapper(componentModel = "cdi")
 public interface IMapperEjb {
@@ -48,5 +50,8 @@ public interface IMapperEjb {
 	Ouvrage map(DtoOuvrage source);
 
 	DtoOuvrage map(Ouvrage source);
+//Utilisateur
+	Utilisateur map(DtoUtilisateur source);
 
+	DtoUtilisateur map(Utilisateur source);
 }

@@ -24,6 +24,10 @@
    <from-outcome>auteur</from-outcome>
    <to-view-id>/pages/admin/Auteur/liste.xhtml</to-view-id>
   </navigation-case>
+  <navigation-case>
+   <from-outcome>utilisateur</from-outcome>
+   <to-view-id>/pages/admin/Utilisateur/liste.xhtml</to-view-id>
+  </navigation-case>
  </navigation-rule>
  <application/>
 </faces-config>

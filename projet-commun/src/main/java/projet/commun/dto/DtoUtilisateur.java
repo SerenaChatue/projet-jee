@@ -9,20 +9,20 @@ public class DtoUtilisateur implements Serializable {
 	
 	private int id;
 	
-	private String nom;
+	private String nomUtilisateur;
 	
-	private String prenom;
+	private String prenomUtilisateur;
 	
 	//Constructeur
 	
 	public DtoUtilisateur() {
 	}
 	
-	public DtoUtilisateur(int id, String nom, String prenom) {
+	public DtoUtilisateur(int id, String nomUtilisateur, String prenomUtilisateur) {
 		super();
 		this.id = id;
-		this.nom = nom;
-		this.prenom = prenom;
+		this.nomUtilisateur = nomUtilisateur;
+		this.prenomUtilisateur = prenomUtilisateur;
 	}
 
 	//Getters and setters
@@ -35,19 +35,19 @@ public class DtoUtilisateur implements Serializable {
 		this.id = id;
 	}
 
-	public String getNom() {
-		return nom;
+	public String getNomUtilisateur() {
+		return nomUtilisateur;
 	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setNomUtilisateur(String nomUtilisateur) {
+		this.nomUtilisateur = nomUtilisateur;
 	}
 
-	public String getPrenom() {
-		return prenom;
+	public String getPrenomUtilisateur() {
+		return prenomUtilisateur;
 	}
 
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
+	public void setPrenomUtilisateur(String prenomUtilisateur) {
+		this.prenomUtilisateur = prenomUtilisateur;
 	}
 }
