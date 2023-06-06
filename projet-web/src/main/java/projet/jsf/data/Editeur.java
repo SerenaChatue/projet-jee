@@ -1,4 +1,4 @@
-package projet.ejb.data;
+package projet.jsf.data;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -18,8 +18,8 @@ public class Editeur {
 	@Column( name = "idediteur" )
 	private int	id;
 	
-	@Column( name = "nomEditeur" )
-	private String	nomEditeur;
+	@Column( name = "nomediteur" )
+	private String	nomediteur;
 	
 	public Editeur() {
 	}
@@ -38,17 +38,17 @@ public class Editeur {
 		this.id = id;
 	}
 
-	public String getNomEditeur() {
-		return nomEditeur;
+	public String getNomediteur() {
+		return nomediteur;
 	}
 
 	public void setNomediteur(String nomediteur) {
-		this.nomEditeur = nomediteur;
+		this.nomediteur = nomediteur;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, nomEditeur);
+		return Objects.hash(id, nomediteur);
 	}
 
 	@Override
@@ -61,12 +61,12 @@ public class Editeur {
 			return false;
 		Editeur other = (Editeur) obj;
 		return id == other.id
-				&& Objects.equals(nomEditeur, other.nomEditeur);
+				&& Objects.equals(nomediteur, other.nomediteur);
 	}
 
 	@Override
 	public String toString() {
-		return "Auteur [id=" + id + ", nomediteur=" + nomEditeur + "]";
+		return "Auteur [id=" + id + ", nomediteur=" + nomediteur + "]";
 	}
 	
 	

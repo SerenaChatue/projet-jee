@@ -16,6 +16,14 @@
    <from-outcome>info</from-outcome>
    <to-view-id>/pages/info.xhtml</to-view-id>
   </navigation-case>
+  <navigation-case>
+   <from-outcome>ouvrage</from-outcome>
+   <to-view-id>/pages/admin/Ouvrage/liste.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>auteur</from-outcome>
+   <to-view-id>/pages/admin/Auteur/liste.xhtml</to-view-id>
+  </navigation-case>
  </navigation-rule>
  <application/>
 </faces-config>

@@ -72,9 +72,9 @@ public class ServiceAuteur implements IServiceAuteur {
 
 		StringBuilder message = new StringBuilder();
 
-		if (dtoAuteur.getNom() == null || dtoAuteur.getNom().isEmpty()) {
+		if (dtoAuteur.getNomAuteur() == null || dtoAuteur.getNomAuteur().isEmpty()) {
 			message.append("\nLe nom est absent.");
-		} else if (dtoAuteur.getNom().length() > 25) {
+		} else if (dtoAuteur.getNomAuteur().length() > 25) {
 			message.append("\nLe nom est trop long.");
 		}
 

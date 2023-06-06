@@ -1,8 +1,7 @@
 package projet.commun.dto;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+
 
 
 @SuppressWarnings("serial")
@@ -42,11 +41,11 @@ public class DtoEditeur implements Serializable {
 		this.idEditeur = id;
 	}
 
-	public String getNom() {
+	public String getNomEditeur() {
 		return nomEditeur;
 	}
 
-	public void setNom(String nom) {
+	public void setNomEditeur(String nom) {
 		this.nomEditeur = nom;
 	}
 

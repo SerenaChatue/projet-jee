@@ -56,7 +56,7 @@ public class DaoOuvrage implements IDaoOuvrage {
 	@TransactionAttribute( NOT_SUPPORTED )
 	public List<Ouvrage> listerTout() {
 		em.clear();
-		var jpql = "SELECT o FROM Ouvrage o ORDER BY o.nomOuvrage";
+		var jpql = "SELECT o FROM Ouvrage o";
 		var query = em.createQuery( jpql, Ouvrage.class );
 		return query.getResultList();
 	}

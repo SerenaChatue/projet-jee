@@ -61,7 +61,7 @@ public class DaoEditeur implements IDaoEditeur {
 	@Override
 	public List<Editeur> listerTout() {
 		//return  trierParNom( new ArrayList<>(donnees.getMapEditeurs().values() ) );
-		return em.createQuery("SELECT p FROM Editeur p ORDER BY p.nom",Editeur.class).getResultList();
+		return em.createQuery("SELECT p FROM Editeur p ORDER BY p.nomEditeur",Editeur.class).getResultList();
 	}
 
 

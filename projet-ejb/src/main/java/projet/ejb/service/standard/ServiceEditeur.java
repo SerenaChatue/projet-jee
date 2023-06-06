@@ -72,9 +72,9 @@ public class ServiceEditeur implements IServiceEditeur {
 
 		StringBuilder message = new StringBuilder();
 
-		if (dtoEditeur.getNom() == null || dtoEditeur.getNom().isEmpty()) {
+		if (dtoEditeur.getNomEditeur() == null || dtoEditeur.getNomEditeur().isEmpty()) {
 			message.append("\nLe nom est absent.");
-		} else if (dtoEditeur.getNom().length() > 25) {
+		} else if (dtoEditeur.getNomEditeur().length() > 25) {
 			message.append("\nLe nom est trop long.");
 		}
 

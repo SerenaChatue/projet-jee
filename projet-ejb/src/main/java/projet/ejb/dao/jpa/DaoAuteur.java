@@ -1,6 +1,7 @@
 package projet.ejb.dao.jpa;
 
 import static javax.ejb.TransactionAttributeType.MANDATORY;
+import static javax.ejb.TransactionAttributeType.NOT_SUPPORTED;
 
 import java.util.List;
 
@@ -57,9 +58,10 @@ public class DaoAuteur implements IDaoAuteur {
 	}
 
 	@Override
+	@TransactionAttribute( NOT_SUPPORTED )
 	public List<Auteur> listerTout() {
 		//return  trierParNom( new ArrayList<>(donnees.getMapAuteurs().values() ) );
-		return em.createQuery("SELECT p FROM Auteur p ORDER BY p.nom",Auteur.class).getResultList();
+		return em.createQuery("SELECT p FROM Auteur p ORDER BY p.nomAuteur",Auteur.class).getResultList();
 	}
 
 

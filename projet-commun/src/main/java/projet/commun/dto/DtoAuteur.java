@@ -42,11 +42,11 @@ public class DtoAuteur implements Serializable {
 		this.idAuteur = id;
 	}
 
-	public String getNom() {
+	public String getNomAuteur() {
 		return nomAuteur;
 	}
 
-	public void setNom(String nom) {
+	public void setNomAuteur(String nom) {
 		this.nomAuteur = nom;
 	}
 
