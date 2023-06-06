@@ -14,12 +14,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table( name = "editeur" )
+@Table( name = "amitie" )
 public class Amitie {
-
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-	@Column(name = "idami")
+	@Column(name = "idAmitie")
 	private int id;
 	
 	@Column(name = "demande_envoyee")
