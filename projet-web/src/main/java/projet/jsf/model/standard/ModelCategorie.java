@@ -9,10 +9,10 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import projet.commun.dto.DtoAuteur;
+import projet.commun.dto.DtoCategorie;
 import projet.commun.exception.ExceptionValidation;
-import projet.commun.service.IServiceAuteur;
-import projet.jsf.data.Auteur;
+import projet.commun.service.IServiceCategorie;
+import projet.jsf.data.Categorie;
 import projet.jsf.data.mapper.IMapper;
 import projet.jsf.util.UtilJsf;
 
@@ -20,17 +20,17 @@ import projet.jsf.util.UtilJsf;
 @SuppressWarnings("serial")
 @Named
 @ViewScoped
-public class ModelAuteur implements Serializable {
+public class ModelCategorie implements Serializable {
 
 	
 	// Champs
 	
-	private List<Auteur>	liste;
+	private List<Categorie>	liste;
 	
-	private Auteur			courant;
+	private Categorie			courant;
 	
 	@EJB
-	private IServiceAuteur	serviceAuteur;
+	private IServiceCategorie	serviceCategorie;
 	
 	@Inject
 	private IMapper			mapper;
@@ -38,19 +38,19 @@ public class ModelAuteur implements Serializable {
 	
 	// Getters 
 	
-	public List<Auteur> getListe() {
+	public List<Categorie> getListe() {
 		if ( liste == null ) {
 			liste = new ArrayList<>();
-			for ( DtoAuteur dto : serviceAuteur.listerTout() ) {
+			for ( DtoCategorie dto : serviceCategorie.listerTout() ) {
 				liste.add( mapper.map( dto ) );
 			}
 		}
 		return liste;
 	}
 	
-		public Auteur getCourant() {
+		public Categorie getCourant() {
 			if ( courant == null ) {
-				courant = new Auteur();
+				courant = new Categorie();
 			}
 			return courant;
 		}
@@ -60,7 +60,7 @@ public class ModelAuteur implements Serializable {
 	
 	public String actualiserCourant() {
 		if ( courant != null ) {
-			DtoAuteur dto = serviceAuteur.retrouver( courant.getId() ); 
+			DtoCategorie dto = serviceCategorie.retrouver( courant.getId() ); 
 			if ( dto == null ) {
 				UtilJsf.messageError( "Le compte demandé n'existe pas" );
 				return "test/liste";
@@ -77,9 +77,9 @@ public class ModelAuteur implements Serializable {
 	public String validerMiseAJour() {
 		try {
 			if ( courant.getId() == null) {
-				serviceAuteur.inserer( mapper.map(courant) );
+				serviceCategorie.inserer( mapper.map(courant) );
 			} else {
-				serviceAuteur.modifier( mapper.map(courant) );
+				serviceCategorie.modifier( mapper.map(courant) );
 			}
 			UtilJsf.messageInfo( "Mise à jour effectuée avec succès." );
 			return "liste";
@@ -89,9 +89,9 @@ public class ModelAuteur implements Serializable {
 		}
 	}
 	
-	public String supprimer( Auteur item ) {
+	public String supprimer( Categorie item ) {
 		try {
-			serviceAuteur.supprimer( item.getId() );
+			serviceCategorie.supprimer( item.getId() );
 			liste.remove(item);
 			UtilJsf.messageInfo( "Suppression effectuée avec succès." );
 		} catch (ExceptionValidation e) {

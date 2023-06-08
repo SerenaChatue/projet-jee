@@ -11,14 +11,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table( name = "editeur" )
+@Table( name = "editeur"  )
 public class Editeur {
 	@Id
 	@GeneratedValue( strategy = IDENTITY )
-	@Column( name = "idediteur" )
+	@Column( name = "idEditeur" )
 	private int	id;
 	
-	@Column( name = "nomediteur" )
+	@Column( name = "nomEditeur" )
 	private String	nomEditeur;
 	
 	public Editeur() {
@@ -27,7 +27,7 @@ public class Editeur {
 	public Editeur(int id, String nomediteur) {
 		super();
 		setId(id);
-		setNomediteur(nomediteur);
+		setNomEditeur(nomediteur);
 	}
 
 	public int getId() {
@@ -42,7 +42,7 @@ public class Editeur {
 		return nomEditeur;
 	}
 
-	public void setNomediteur(String nomediteur) {
+	public void setNomEditeur(String nomediteur) {
 		this.nomEditeur = nomediteur;
 	}
 
@@ -66,7 +66,7 @@ public class Editeur {
 
 	@Override
 	public String toString() {
-		return "Auteur [id=" + id + ", nomediteur=" + nomEditeur + "]";
+		return "Editeur [id=" + id + ", nomediteur=" + nomEditeur + "]";
 	}
 	
 	

@@ -42,7 +42,7 @@ public class Ouvrage {
 	@JoinColumn(name = "idcategorie")
 	private Categorie categorie;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idcompte")
 	private Utilisateur utilisateur;
 

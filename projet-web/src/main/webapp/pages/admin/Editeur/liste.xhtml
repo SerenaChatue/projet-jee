@@ -5,43 +5,23 @@
      xmlns:ui="http://java.sun.com/jsf/facelets"
      template="/template/page-standard.xhtml" >
 
-     <ui:define name="titre">Liste des ouvrages</ui:define>
+     <ui:define name="titre">Liste des editeurs</ui:define>
 
     <ui:define name="contenu">
 
 	<h:form>
 
 		<h:dataTable styleClass="liste" 
-			value="#{modelOuvrage.liste}" var="item" 
-			rowClasses="impair, pair" columnClasses="left,left,left,left"
+			value="#{modelEditeur.liste}" var="item" 
+			rowClasses="impair, pair" columnClasses="left,left,center"
 		>
 			<h:column>
 				<f:facet name="header">
 					<h:outputText value="Nom" />
 				</f:facet>
-				#{item.nomOuvrage}
+				#{item.nomEditeur}
 			</h:column>
 			
-			<h:column>
-				<f:facet name="header">
-					<h:outputText value="Editeur" />
-				</f:facet>
-				#{item.editeur.nomEditeur}
-			</h:column>
-			
-			<h:column>
-				<f:facet name="header">
-					<h:outputText value="Categorie" />
-				</f:facet>
-				#{item.categorie.libelle}
-			</h:column>
-			
-			<h:column>
-				<f:facet name="header">
-					<h:outputText value="Auteur" />
-				</f:facet>
-				#{item.auteur.nomAuteur}
-			</h:column>
 			
 			<h:column>
 				<f:facet name="header">
@@ -53,7 +33,7 @@
 					title="Modifier" 
 					styleClass="image-action"
 				/>
-				<h:commandButton action="#{modelOuvrage.supprimer(item)}" 
+				<h:commandButton action="#{modelEditeur.supprimer(item)}" 
 					value="Supprimer" 
 					onclick="return confirm('Confirmez-vous la suppression ?')" 
 					image="#{ resource['images:supprimer.png'] }" 

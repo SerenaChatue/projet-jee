@@ -27,11 +27,11 @@ public class Amitie {
 	@Column(name = "demande_acceptee")
 	private boolean demandeAcceptee;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "sender_id")
 	private Utilisateur sender;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "receiver_id")
 	private Utilisateur receiver;
 	

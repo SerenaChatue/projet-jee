@@ -8,6 +8,7 @@ import java.util.List;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
 
@@ -31,6 +32,7 @@ public class ServiceEditeur implements IServiceEditeur {
 	// Actions
 
 	@Override
+	@TransactionAttribute( TransactionAttributeType.REQUIRED)
 	public int inserer(DtoEditeur dtoEditeur) throws ExceptionValidation {
 		verifierValiditeDonnees(dtoEditeur);
 		int id = daoEditeur.inserer(mapper.map(dtoEditeur));
@@ -38,6 +40,7 @@ public class ServiceEditeur implements IServiceEditeur {
 	}
 
 	@Override
+	@TransactionAttribute( TransactionAttributeType.REQUIRED)
 	public void modifier(DtoEditeur dtoEditeur) throws ExceptionValidation {
 		verifierValiditeDonnees(dtoEditeur);
 		daoEditeur.modifier(mapper.map(dtoEditeur));

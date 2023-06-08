@@ -22,6 +22,9 @@
     NAME="output5" PATH="/pages/admin/Utilisateur/liste.xhtml"
     TARGET="rules:#pages#admin#Utilisateur#liste.xhtml"
     TITLE="utilisateur" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editeur::#pages#admin#Editeur#liste.xhtml"
+    NAME="output6" PATH="/pages/admin/Editeur/liste.xhtml"
+    TARGET="rules:#pages#admin#Editeur#liste.xhtml" TITLE="editeur" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#connexion.xhtml" PATH="/connexion.xhtml"
@@ -38,5 +41,8 @@
   model-entity="JSFProcessGroup" persistent="true"/>
  <PROCESS-ITEM NAME="rules:#pages#admin#Utilisateur#liste.xhtml"
   PATH="/pages/admin/Utilisateur/liste.xhtml" SHAPE="328,320,50,25"
+  model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#pages#admin#Editeur#liste.xhtml"
+  PATH="/pages/admin/Editeur/liste.xhtml" SHAPE="295,373,0,0"
   model-entity="JSFProcessGroup" persistent="true"/>
 </PROCESS>

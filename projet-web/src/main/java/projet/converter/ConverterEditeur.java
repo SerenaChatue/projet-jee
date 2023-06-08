@@ -9,32 +9,32 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.inject.Named;
 
-import projet.jsf.data.Categorie;
+import projet.jsf.data.Editeur;
 
 @Named
 @RequestScoped
-public class ConverterCategorie implements Converter<Categorie> {
+public class ConverterEditeur implements Converter<Editeur> {
 
 	// Actions
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Categorie getAsObject(FacesContext context, UIComponent uic, String value) {
+	public Editeur getAsObject(FacesContext context, UIComponent uic, String value) {
 
 		if (value == null || value.isEmpty()) {
 			return null;
 		}
 
-		List<Categorie> items = null;
+		List<Editeur> items = null;
 		for (UIComponent c : uic.getChildren()) {
 			if (c instanceof UISelectItems) {
-				items = (List<Categorie>) ((UISelectItems) c).getValue();
+				items = (List<Editeur>) ((UISelectItems) c).getValue();
 				break;
 			}
 		}
 
 		var id = Integer.valueOf(value);
-		for (Categorie item : items) {
+		for (Editeur item : items) {
 			if (item.getId()==(id)) {
 				return item;
 			}
@@ -43,7 +43,7 @@ public class ConverterCategorie implements Converter<Categorie> {
 	}
 
 	@Override
-	public String getAsString(FacesContext context, UIComponent component, Categorie item) {
+	public String getAsString(FacesContext context, UIComponent component, Editeur item) {
 
 		if (item == null) {
 			return "";

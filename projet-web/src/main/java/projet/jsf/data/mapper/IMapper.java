@@ -5,13 +5,18 @@ import org.mapstruct.MappingTarget;
 
 import projet.commun.dto.DtoAmitie;
 import projet.commun.dto.DtoAuteur;
+import projet.commun.dto.DtoCategorie;
 import projet.commun.dto.DtoCompte;
+import projet.commun.dto.DtoEditeur;
 import projet.commun.dto.DtoEmprunt;
 import projet.commun.dto.DtoOuvrage;
 import projet.commun.dto.DtoUtilisateur;
+
 import projet.jsf.data.Amitie;
 import projet.jsf.data.Auteur;
+import projet.jsf.data.Categorie;
 import projet.jsf.data.Compte;
+import projet.jsf.data.Editeur;
 import projet.jsf.data.Emprunt;
 import projet.jsf.data.Ouvrage;
 import projet.jsf.data.Utilisateur;
@@ -72,4 +77,24 @@ public interface IMapper {
 	Emprunt		update(@MappingTarget Emprunt target, Emprunt source);
 	
 	DtoEmprunt	map(Emprunt courant);
+
+	// Editeur
+
+	Editeur map(DtoEditeur source);
+
+	DtoEditeur map(Editeur source);
+
+	Editeur duplicate(Editeur source);
+
+	Editeur update(@MappingTarget Editeur target, Editeur source);
+	
+	//categorie
+	Categorie map(DtoCategorie source);
+
+	DtoCategorie map(Categorie source);
+
+	Categorie duplicate(Categorie source);
+
+	Categorie update(@MappingTarget Categorie target, Categorie source);
+
 }

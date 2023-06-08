@@ -52,6 +52,7 @@ public class DaoAuteur implements IDaoAuteur {
 	}
 
 	@Override
+	@TransactionAttribute( NOT_SUPPORTED )
 	public Auteur retrouver(int idAuteur) {
 		//return donnees.getMapAuteurs().get( idAuteur );
 		return em.find(Auteur.class,idAuteur);

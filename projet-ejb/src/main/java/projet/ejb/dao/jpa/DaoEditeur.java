@@ -1,13 +1,14 @@
 package projet.ejb.dao.jpa;
 
 import static javax.ejb.TransactionAttributeType.MANDATORY;
+import static javax.ejb.TransactionAttributeType.NOT_SUPPORTED;
 
 import java.util.List;
 
 import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
-import javax.inject.Inject;
+import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -26,8 +27,8 @@ public class DaoEditeur implements IDaoEditeur {
 	
 
 	// Actions
-	
 	@Override
+	@TransactionAttribute( TransactionAttributeType.REQUIRED)
 	public int inserer(Editeur editeur) {
 //		editeur.setId( donnees.getProchainIdEditeur() );
 //		affecterIdTelephones(editeur);
@@ -39,6 +40,7 @@ public class DaoEditeur implements IDaoEditeur {
 	}
 
 	@Override
+	@TransactionAttribute( TransactionAttributeType.REQUIRED)
 	public void modifier(Editeur editeur) {
 //		affecterIdTelephones(editeur);
 //		donnees.getMapEditeurs().replace( editeur.getId(), editeur );
@@ -48,19 +50,21 @@ public class DaoEditeur implements IDaoEditeur {
 	@Override
 	public void supprimer(int idEditeur) {
 		//donnees.getMapEditeurs().remove( idEditeur );
-//		em.remove(em.getReference(Editeur.class, idEditeur));
 		em.remove(retrouver(idEditeur));
 	}
 
 	@Override
+	@TransactionAttribute( NOT_SUPPORTED )
 	public Editeur retrouver(int idEditeur) {
 		//return donnees.getMapEditeurs().get( idEditeur );
 		return em.find(Editeur.class,idEditeur);
 	}
 
 	@Override
+	@TransactionAttribute( NOT_SUPPORTED )
 	public List<Editeur> listerTout() {
 		//return  trierParNom( new ArrayList<>(donnees.getMapEditeurs().values() ) );
+		System.out.println("yyyyyyyooooo");
 		return em.createQuery("SELECT p FROM Editeur p ORDER BY p.nomEditeur",Editeur.class).getResultList();
 	}
 

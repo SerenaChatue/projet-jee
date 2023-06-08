@@ -38,6 +38,7 @@ public class DaoOuvrage implements IDaoOuvrage {
 
 	@Override
 	public void modifier(Ouvrage ouvrage) {
+		ouvrage.setUtilisateur(null);
 		em.merge( ouvrage );
 	}
 
@@ -58,6 +59,7 @@ public class DaoOuvrage implements IDaoOuvrage {
 		em.clear();
 		var jpql = "SELECT o FROM Ouvrage o";
 		var query = em.createQuery( jpql, Ouvrage.class );
+		System.out.println(query.getResultList().toString());
 		return query.getResultList();
 	}
 

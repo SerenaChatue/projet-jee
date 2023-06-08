@@ -1,40 +1,32 @@
 package projet.jsf.data;
 
-import static javax.persistence.GenerationType.IDENTITY;
-
+import java.io.Serializable;
 import java.util.Objects;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
+@SuppressWarnings("serial")
 @Entity
-@Table( name = "categorie"  )
-public class Categorie {
-	@Id
-	@GeneratedValue( strategy = IDENTITY )
-	@Column( name = "idcategorie" )
-	private int	id;
-	
-	@Column( name = "libelle" )
-	private String	libelle;
-	
+@Table(name = "categorie")
+public class Categorie implements Serializable {
+
+	Integer id;
+
+	@NotBlank(message = "Le pseudo doit être renseigné")
+	@Size(max = 25, message = "Valeur trop longue pour le pseuo : 25 car. maxi")
+	private String libelle;
+
 	public Categorie() {
 	}
 
-	public Categorie(int id, String libelle) {
-		super();
-		setId(id);
-		setLibelle(libelle);
-	}
-
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -43,6 +35,13 @@ public class Categorie {
 	}
 
 	public void setLibelle(String libelle) {
+		this.libelle = libelle;
+	}
+
+	public Categorie(Integer id,
+			@NotBlank(message = "Le pseudo doit être renseigné") @Size(max = 25, message = "Valeur trop longue pour le pseuo : 25 car. maxi") String libelle) {
+		super();
+		this.id = id;
 		this.libelle = libelle;
 	}
 
@@ -60,11 +59,12 @@ public class Categorie {
 		if (getClass() != obj.getClass())
 			return false;
 		Categorie other = (Categorie) obj;
-		return id == other.id && Objects.equals(libelle, other.libelle);
+		return Objects.equals(id, other.id) && Objects.equals(libelle, other.libelle);
 	}
 
 	@Override
 	public String toString() {
 		return "Categorie [id=" + id + ", libelle=" + libelle + "]";
 	}
+
 }

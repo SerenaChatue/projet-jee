@@ -2,8 +2,6 @@ package projet.commun.dto;
 
 import java.io.Serializable;
 
-
-
 @SuppressWarnings("serial")
 public class DtoEditeur implements Serializable {
 	
