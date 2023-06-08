@@ -3,6 +3,7 @@ package projet.commun.dto;
 import java.io.Serializable;
 import java.sql.Date;
 
+@SuppressWarnings("serial")
 public class DtoEmprunt implements Serializable {
 
 	// Champs

@@ -32,9 +32,9 @@
 					<h:outputLabel for="nomAuteur">Nom :</h:outputLabel>				
 				</td>
 				<td>
-					<h:inputText id="pseudo" size="25" 
+					<h:inputText id="nomAuteur" size="25" 
 						value="#{modelAuteur.courant.nomAuteur}" />
-					<br /><h:message for="pseudo" errorClass="error"/>
+					<br /><h:message for="nomAuteur" errorClass="error"/>
 				</td>
 			</tr>
 		</table>
@@ -42,7 +42,7 @@
 		<br /> 
 		<h:commandButton value="Valider" 
 			action="#{modelAuteur.validerMiseAJour()}" />
-		<h:button value="Retour" outcome="auteurs" />
+		<h:button value="Retour" outcome="auteur" />
 	</h:form>
 
 	</ui:define>

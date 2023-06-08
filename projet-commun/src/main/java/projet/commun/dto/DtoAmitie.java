@@ -1,6 +1,9 @@
 package projet.commun.dto;
 
-public class DtoAmitie {
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class DtoAmitie implements Serializable {
 
 	private int id;
 	

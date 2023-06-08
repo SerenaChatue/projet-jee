@@ -13,7 +13,7 @@ public interface IDaoAmitie {
 	void 		supprimer( int idAmitie );
 
 	Amitie 	retrouver( int idAmitie );
-
+	
 	List<Amitie> listerTout();
 	
 	List<Amitie> listerAmis(int idUser);

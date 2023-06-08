@@ -1,9 +1,6 @@
 package projet.commun.dto;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
 
 @SuppressWarnings("serial")
 public class DtoAuteur implements Serializable {
@@ -11,7 +8,7 @@ public class DtoAuteur implements Serializable {
 	
 	// Champs
 	
-	private int				idAuteur;
+	private int				id;
 	
 	private String			nomAuteur;
 	
@@ -23,10 +20,10 @@ public class DtoAuteur implements Serializable {
 	public DtoAuteur() {
 	}
 
-	public DtoAuteur(int id, String nom) {
+	public DtoAuteur(int id, String nomAuteur) {
 		super();
-		this.idAuteur = id;
-		this.nomAuteur = nom;
+		this.id = id;
+		this.nomAuteur = nomAuteur;
 		
 	}
 	
@@ -35,11 +32,11 @@ public class DtoAuteur implements Serializable {
 	// Getters & setters
 
 	public int getId() {
-		return idAuteur;
+		return id;
 	}
 
 	public void setId(int id) {
-		this.idAuteur = id;
+		this.id = id;
 	}
 
 	public String getNomAuteur() {

@@ -43,29 +43,47 @@
 				<h:panelGroup rendered="#{compteActif.admininstrateur}">
 					<h:link outcome="comptes" value="Accueil" />
 				</h:panelGroup>
+				<h:outputText value="#{compteActif.pseudo}"
+					style="margin-right: 10px;" />
 				<h:commandLink action="#{compteActif.disconnect()}"
 					value="Déconnexion" style="right: 1px;" />
 			</h:form>
+
 		</div>
 		<div>
-			<h:dataTable>
-				<h:column>
-					<f:facet name="header">
+			<dl style="text-align: left;">
+				<h:panelGroup>
+					<dt>
 						<h:graphicImage library="images" name="livre-ouvert.png" />
-						<h:link value="Mes livres" outcome="ouvrage"/>
-						<h:column>
+						<h:link value="Mes livres" outcome="ouvrage" />
+					</dt>
+					<dt>
 						<h:graphicImage library="images" name="lhorloge.png" />
 						<h:outputText value="Recemment lus" />
-						</h:column>
+					</dt>
+					<dt>
 						<h:graphicImage library="images" name="lister.png" />
 						<h:link value="Tous les utilisateurs" outcome="utilisateur" />
+					</dt>
+					<dt>
 						<h:graphicImage library="images" name="police-de-caractere.png" />
-						<h:link value="Auteurs" outcome="auteur"/>
+						<h:link value="Auteurs" outcome="auteur" />
+					</dt>
+					<dt>
 						<h:graphicImage library="images" name="editer.png" />
 						<h:outputText value="Editeurs" />
-					</f:facet>
-				</h:column>
-			</h:dataTable>
+					</dt>
+					<dt>
+						<h:graphicImage library="images" name="lister.png" />
+						<h:link value="Demandes recues" outcome="utilisateur" />
+					</dt>
+					<dt>
+						<h:graphicImage library="images" name="lister.png" />
+						<h:link value="Emprunts" outcome="utilisateur" />
+					</dt>
+
+				</h:panelGroup>
+			</dl>
 		</div>
 
 		<h1>

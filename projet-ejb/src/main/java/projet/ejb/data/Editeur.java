@@ -18,7 +18,7 @@ public class Editeur {
 	@Column( name = "idediteur" )
 	private int	id;
 	
-	@Column( name = "nomEditeur" )
+	@Column( name = "nomediteur" )
 	private String	nomEditeur;
 	
 	public Editeur() {

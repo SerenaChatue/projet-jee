@@ -10,7 +10,7 @@ public class DtoEditeur implements Serializable {
 	
 	// Champs
 	
-	private int				idEditeur;
+	private int				id;
 	
 	private String			nomEditeur;
 	
@@ -22,10 +22,10 @@ public class DtoEditeur implements Serializable {
 	public DtoEditeur() {
 	}
 
-	public DtoEditeur(int id, String nom) {
+	public DtoEditeur(int id, String nomEditeur) {
 		super();
-		this.idEditeur = id;
-		this.nomEditeur = nom;
+		this.id = id;
+		this.nomEditeur = nomEditeur;
 		
 	}
 	
@@ -34,11 +34,11 @@ public class DtoEditeur implements Serializable {
 	// Getters & setters
 
 	public int getId() {
-		return idEditeur;
+		return id;
 	}
 
 	public void setId(int id) {
-		this.idEditeur = id;
+		this.id = id;
 	}
 
 	public String getNomEditeur() {

@@ -49,7 +49,7 @@ public class DaoUtilisateur implements IDaoUtilisateur {
 	public List<Utilisateur> listerTout() {
 		// TODO Auto-generated method stub
 		var jpql = "SELECT u FROM Utilisateur u ORDER BY u.nomUtilisateur";
-		System.out.println("heloooo");
+		
 		var query = em.createQuery(jpql, Utilisateur.class);
 		return query.getResultList();
 	}

@@ -34,11 +34,11 @@ public class Ouvrage {
 	@Column(name = "nomouvrage")
 	private String nomOuvrage;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idAuteur")
 	private Auteur auteur;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idcategorie")
 	private Categorie categorie;
 
@@ -46,7 +46,7 @@ public class Ouvrage {
 	@JoinColumn(name = "idcompte")
 	private Utilisateur utilisateur;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idediteur")
 	private Editeur editeur;
 

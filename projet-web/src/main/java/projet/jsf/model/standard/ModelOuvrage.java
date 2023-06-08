@@ -44,6 +44,15 @@ public class ModelOuvrage implements Serializable {
 		}
 		return liste;
 	}
+	public List<Ouvrage> getListeUtilisateur() {
+		if (liste == null) {
+			liste = new ArrayList<>();
+			for (DtoOuvrage dto : serviceOuvrage.listerTout()) {
+				liste.add(mapper.map(dto));
+			}
+		}
+		return liste;
+	}
 
 	public Ouvrage getCourant() {
 		if (courant == null) {

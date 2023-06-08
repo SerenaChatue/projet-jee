@@ -13,27 +13,34 @@
 
 		<h:dataTable styleClass="liste" 
 			value="#{modelOuvrage.liste}" var="item" 
-			rowClasses="impair, pair" columnClasses="left,left,center"
+			rowClasses="impair, pair" columnClasses="left,left,left"
 		>
 			<h:column>
 				<f:facet name="header">
 					<h:outputText value="Nom" />
 				</f:facet>
-				#{item.nom}
+				#{item.nomOuvrage}
 			</h:column>
 			
 			<h:column>
 				<f:facet name="header">
 					<h:outputText value="Editeur" />
 				</f:facet>
-				#{item.editeur}
+				#{item.editeur.nomediteur}
 			</h:column>
 			
 			<h:column>
 				<f:facet name="header">
 					<h:outputText value="Categorie" />
 				</f:facet>
-				#{item.categorie}
+				#{item.categorie.libelle}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Auteur" />
+				</f:facet>
+				#{item.auteur.nomAuteur}
 			</h:column>
 			
 			<h:column>

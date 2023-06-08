@@ -3,18 +3,10 @@
  */
 package projet.jsf.data;
 
-import static javax.persistence.GenerationType.IDENTITY;
 
 import java.io.Serializable;
 import java.util.Objects;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -30,7 +22,7 @@ public class Ouvrage implements Serializable {
 
 	private Integer id;
 
-	private String nom;
+	private String nomOuvrage;
 
 	private Auteur auteur;
 
@@ -48,12 +40,14 @@ public class Ouvrage implements Serializable {
 		this.id = id;
 	}
 
-	public String getNom() {
-		return nom;
+	
+
+	public String getNomOuvrage() {
+		return nomOuvrage;
 	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setNomOuvrage(String nomOuvrage) {
+		this.nomOuvrage = nomOuvrage;
 	}
 
 	public Auteur getAuteur() {
@@ -88,24 +82,26 @@ public class Ouvrage implements Serializable {
 		this.editeur = editeur;
 	}
 
-	public Ouvrage(Integer id, String nom, Auteur auteur, Categorie categorie, Utilisateur utilisateur,
+	@Override
+	public int hashCode() {
+		return Objects.hash(auteur, categorie, editeur, id, nomOuvrage, utilisateur);
+	}
+
+	public Ouvrage() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+
+	public Ouvrage(Integer id, String nomOuvrage, Auteur auteur, Categorie categorie, Utilisateur utilisateur,
 			Editeur editeur) {
 		super();
 		this.id = id;
-		this.nom = nom;
+		this.nomOuvrage = nomOuvrage;
 		this.auteur = auteur;
 		this.categorie = categorie;
 		this.utilisateur = utilisateur;
 		this.editeur = editeur;
-	}
-
-	public Ouvrage() {
-		
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(auteur, categorie, editeur, id, nom, utilisateur);
 	}
 
 	@Override
@@ -119,8 +115,11 @@ public class Ouvrage implements Serializable {
 		Ouvrage other = (Ouvrage) obj;
 		return Objects.equals(auteur, other.auteur) && Objects.equals(categorie, other.categorie)
 				&& Objects.equals(editeur, other.editeur) && Objects.equals(id, other.id)
-				&& Objects.equals(nom, other.nom) && Objects.equals(utilisateur, other.utilisateur);
+				&& Objects.equals(nomOuvrage, other.nomOuvrage) && Objects.equals(utilisateur, other.utilisateur);
 	}
+	
+
+
 
 
 }

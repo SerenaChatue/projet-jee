@@ -3,12 +3,16 @@ package projet.jsf.data.mapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 
+import projet.commun.dto.DtoAmitie;
 import projet.commun.dto.DtoAuteur;
 import projet.commun.dto.DtoCompte;
+import projet.commun.dto.DtoEmprunt;
 import projet.commun.dto.DtoOuvrage;
 import projet.commun.dto.DtoUtilisateur;
+import projet.jsf.data.Amitie;
 import projet.jsf.data.Auteur;
 import projet.jsf.data.Compte;
+import projet.jsf.data.Emprunt;
 import projet.jsf.data.Ouvrage;
 import projet.jsf.data.Utilisateur;
 
@@ -50,5 +54,22 @@ public interface IMapper {
 	Utilisateur update(@MappingTarget Utilisateur target, Utilisateur source);
 
 	DtoUtilisateur map(Utilisateur courant);
+	
+	//Amitie
+	Amitie		map(DtoAmitie source);
+	
+	Amitie		duplicate(Amitie source);
+	
+	Amitie		update(@MappingTarget Amitie target, Amitie source);
+	
+	DtoAmitie	map(Amitie courant);
 
+	//Emprunt
+	Emprunt		map(DtoEmprunt source);
+	
+	Emprunt		duplicate(Emprunt source);
+	
+	Emprunt		update(@MappingTarget Emprunt target, Emprunt source);
+	
+	DtoEmprunt	map(Emprunt courant);
 }
